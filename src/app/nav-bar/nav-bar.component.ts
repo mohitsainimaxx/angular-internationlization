@@ -21,7 +21,5 @@ export class NavBarComponent implements OnInit {
     console.log(this.siteLocale);
     this.siteLanguage = this.languageList.find(f => f.code === this.siteLocale)?.label;
     console.log(this.siteLanguage);
-
-  }
-
+ }
 }
