@@ -1,1 +1,20 @@
-<p style="border: solid 2px green;">compo3 works! {{msg}} <br/><br/>Bord cast :{{this.brodMsg}}</p>
+<div appDmydrict [backgroundColor]="'blue'" [textInputColor]="'white'">compo3 works!
+  <!-- {{8|myCustomPipe:'3'}} -->
+  <!-- {{'11-12-2020'|myCustomPipe:'yyyy-m-d'}} -->
+  {{[10,12,40,50]|myCustomPipe:'40'}}
+</div>
+<h1>Ng content</h1>
+<div id="name">Ng Template</div>
+
+<ng-container >Ng Container</ng-container>
+<ng-template #name>Ng Template</ng-template>
+<ng-content select="h1"></ng-content>
+
+<br/><hr/>
+
+<a  href="#" (click)="getCompo('com1')">Compo1</a>||
+<a href="#" (click)="getCompo('com2')">Compo2</a>
+
+<ng-container *ngComponentOutlet="this.ngTemplateOutlet" name="one"></ng-container>
+
+

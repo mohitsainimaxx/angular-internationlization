@@ -1,13 +1,26 @@
 <mat-toolbar color="primary" class="nav-bar mat-elevation-z2">
     <mat-label>Mutilingua -Internationalization</mat-label>
     <span class="spacer"></span>
-    <a routerLink="practices">Practice</a>
+
     <ng-container>
+      <button mat-button [matMenuTriggerFor]="menus">
+          <mat-icon>arrow_drop_down</mat-icon>Practice
+      </button>
+
+      <mat-menu #menus="matMenu">
+          <a mat-menu-item  routerLink="practices">Practice</a>
+          <a mat-menu-item  routerLink="practices/comp1" routerLinkActive="acitve">Compo1</a>
+          <a mat-menu-item  routerLink="practices/comp2" routerLinkActive="acitve">Compo2</a>
+          <a mat-menu-item  routerLink="practices/comp3" routerLinkActive="acitve">Compo3</a>
+          <a mat-menu-item  routerLink="comp4" routerLinkActive="acitve">Compo4</a>
+
+      </mat-menu>
         <mat-icon>language</mat-icon>
         <button mat-button [matMenuTriggerFor]="menu">
             {{siteLanguage}}
             <mat-icon>arrow_drop_down</mat-icon>
         </button>
+
         <mat-menu #menu="matMenu">
             <a mat-menu-item href="/en">English</a>
             <a mat-menu-item href="/fr">Français</a>

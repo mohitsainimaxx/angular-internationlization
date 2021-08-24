@@ -5,6 +5,8 @@ import { Compo2Component } from './compo2/compo2.component';
 import { Compo3Component } from './compo3/compo3.component';
 import { PracticesRoutingModule } from './practices-routing.module';
 import { BrodCartService } from '../brod-cart.service';
+import { MyCustomPipePipe } from '../my-custom-pipe.pipe';
+import { DmydrictDirective } from '../dmydrict.directive';
 
 
 
@@ -12,12 +14,17 @@ import { BrodCartService } from '../brod-cart.service';
   declarations: [
     Compo1Component,
     Compo2Component,
-    Compo3Component
+    Compo3Component,
+    MyCustomPipePipe,
+    DmydrictDirective
   ],
   imports: [
     CommonModule,
-    PracticesRoutingModule
-  ],providers:[]
+    PracticesRoutingModule,
+
+  ],providers:[],
+
+    entryComponents:[Compo3Component]
 })
 export class PracticesModule { }
 

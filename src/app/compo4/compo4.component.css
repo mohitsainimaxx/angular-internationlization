@@ -1,0 +1,13 @@
+.card{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: masonry;
+  background-color: burlywood;
+}
+.card div.item-1{
+  background-color: chartreuse;
+  border: solid 10px #A77;
+  text-align: center;
+  padding: 20px;
+
+}

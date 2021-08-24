@@ -15,13 +15,20 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { MyCustomPipePipe } from './my-custom-pipe.pipe';
+import { DmydrictDirective } from './dmydrict.directive';
+import { MyGuardGuard } from './my-guard.guard';
+import { Compo4Component } from './compo4/compo4.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    Compo4Component,
+
+
   ],
   imports: [
     BrowserModule,
@@ -36,9 +43,10 @@ import { AppRoutingModule } from './app-routing.module';
     MatMenuModule,
     MatIconModule,
     AppRoutingModule
+
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
-  providers: [],
+  providers: [MyCustomPipePipe,MyGuardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,43 +1,51 @@
-import { EventEmitter, SimpleChanges } from '@angular/core';
-import { Component, Input, OnInit, Output } from '@angular/core';
-import { BrodCartService } from 'src/app/brod-cart.service';
+// @ts-ignore
+import { Component, OnInit,ngModel, ViewChild, ContentChild, Renderer2, ElementRef } from '@angular/core';
+import { Compo1Component } from '../compo1/compo1.component';
+import { Compo2Component } from '../compo2/compo2.component';
 
 @Component({
-  selector: 'app-compo3',
-  templateUrl: './compo3.component.html',
-  styleUrls: ['./compo3.component.css']
+  selector: 'app-area',
+  templateUrl:'./compo3.component.html',
+  styles: []
 })
+
 export class Compo3Component implements OnInit {
-  @Input() msg:any;
-  @Output() brodsms= new EventEmitter<any>();
-  brodMsg:any;
-
-  constructor(private brod:BrodCartService) { }
-
-  ngOnInit(): void {
-
+  name:boolean=true;
+  myTemplate:any;
+  //@ContentChild('h1') h1;
+  @ViewChild('name') el:ElementRef | undefined;
+  ngTemplateOutlet: any;
+  constructor(private renderer:Renderer2){
+    console.log('constro');
   }
-  ngAfterContentInit(): void {
-    //Called after ngOnInit when the component's or directive's content has been initialized.
-    //Add 'implements AfterContentInit' to the class.
-    this.brodsms.emit(this.msg);
-    this.brod.mymsg$.subscribe((res)=>{
-      console.log(res);
-      this.brodMsg=res;
-
-    })
+  ngOnInit(){
+    console.log(this.renderer);
+    //this.renderer.setStyle(
+     // );
+    console.log('hii');
   }
-  ngOnChanges(changes: SimpleChanges): void {
-    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-    //Add '${implements OnChanges}' to the class.
-
+  ngAfterViewInit(): void {
     //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
     //Add 'implements AfterViewInit' to the class.
-  }
-  ngDoCheck(): void {
-    //Called every time that the input properties of a component or a directive are checked. Use it to extend change detection by performing a custom check.
-    //Add 'implements DoCheck' to the class.
-
+  //  this.renderer.addClass(this.el,'colorss')
 
   }
+  ngAfterContentChecked(): void {
+    //Called after every check of the component's or directive's content.
+    //Add 'implements AfterContentChecked' to the class.
+    if(this.myTemplate){
+
+    }
+  }
+  getCompo(name:string):any{
+    if(name=='com1'){
+      this.ngTemplateOutlet=Compo1Component;
+      return false;
+    }else if(name=='com2'){
+      this.ngTemplateOutlet=Compo2Component;
+      return false;
+    }
+  }
+
+  // code goes here
 }
